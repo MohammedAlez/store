@@ -7,8 +7,14 @@ import { SpinnerCircular } from 'spinners-react';
 export const List = ({catg,priceType,maxPrice,subCat}) => {
   const [page,setPage] = useState(0);
   const {error,loading,data} = useFetch(`/products?populate=*${catg?`&[filters][category][id]=${catg}`: ''}
-            ${subCat?.map((i)=>`&[filters][brand][id][$eq]=${i}`)}
+            ${subCat && '&' + subCat.map((i) => `[filters][brand][id][$eq]=${i}`).join('&')}
             ${priceType ? `&sort=price:${priceType}` : ''}`)
+  // const {error,loading,data} = useFetch(`/products?populate=*${catg?`&[filters][category][id]=${catg}`: ''}
+  //           ${subCat?.map((i)=>`&[filters][brand][id][$eq]=${i}`)}
+  //           ${priceType ? `&sort=price:${priceType}` : ''}`)
+  // console.log(`/products?populate=*${catg?`&[filters][category][id]=${catg}`: ''}
+  // ${subCat?.map((i)=>`&[filters][brand][id][$eq]=${i}`)}
+  // ${priceType ? `&sort=price:${priceType}` : ''}`)
   const [pages,setPages] = useState([])
   const startIndex = (page) * 10;
   const visibleItems = data.slice(startIndex,startIndex + 10)

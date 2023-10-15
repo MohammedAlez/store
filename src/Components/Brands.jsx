@@ -26,6 +26,7 @@ export default function Brands({catg,subCat,setSubCat}) {
     return (
         <div className="">
             <Listbox value={selected} onChange={(e)=>{
+                // console.log(e)
                 setSubCat(e.map((e)=>e.id))
                 setSelected(e)
             }} multiple>

@@ -92,7 +92,7 @@ export const Login = () => {
                     <button
                     onClick={handleSubmit}
                     className='mt-6 rounded-xl w-full p-2 bg-blue-600 text-white font-bold hover:bg-blue-700' >Sign in</button>
-                    <Link to="https://strapi-demo-app-7v79.onrender.com/api/connect/google" className='block text-center mt-4 rounded-xl w-full p-2 text-blue-950 hover:text-white hover:bg-blue-950 transition duration-200  font-bold border' >Sign with Google</Link>
+                    {/* <Link to={`${process.env.REACT_APP_API_URL}/connect/google`} className='block text-center mt-4 rounded-xl w-full p-2 text-blue-950 hover:text-white hover:bg-blue-950 transition duration-200  font-bold border' >Sign with Google</Link> */}
                     <Link to='/sign-up' className='font-medium text-gray-500 text-sm mt-6 block text-center'>Dont have an Account ?</Link>
                 </div>}
                 {loading && <div className=' flex justify-center items-center top-0 left-0 w-full h-[350px]'>
